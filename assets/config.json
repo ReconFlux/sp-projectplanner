@@ -1,0 +1,19 @@
+{
+    "objective": {
+        "startField": "StartDate",
+        "endField": "EndDate",
+        "groupField": "Objective"
+    },
+    "options": {
+        "zoomable": false,
+        "orientation": "both",
+        "stack": true,
+        "verticalScroll": true,
+        "zoomMin": 2628000000,
+        "zoomMax": 5256000000,
+        "margin": {
+            "item": 10
+        }
+    },
+    "supportEmail": "someonesemail@email.com"
+}

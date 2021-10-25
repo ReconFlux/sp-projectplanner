@@ -1,0 +1,44 @@
+{
+  "name": "sp-projectplanner",
+  "version": "1.0.0",
+  "description": "A simple project planner tool for project management",
+  "main": "src/index.ts",
+"scripts": {
+    "all": "npm run build && npm run prod",
+    "build": "webpack --mode=development",
+    "prod": "webpack --mode=production"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReconFlux/sp-projectplanner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ReconFlux/sp-projectplanner/issues"
+  },
+  "homepage": "https://github.com/ReconFlux/sp-projectplanner#readme",
+  "dependencies": {
+    "datatables.net": "^1.11.3",
+    "datatables.net-bs5": "^1.11.3",
+    "dattatable": "^1.2.8",
+    "gd-sprest-bs": "^8.6.8",
+    "jquery": "^3.6.0",
+    "moment": "^2.29.1",
+    "vis-timeline": "^7.4.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.4.0",
+    "html-loader": "^3.0.0",
+    "node-sass": "^6.0.1",
+    "sass-loader": "^12.2.0",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.6",
+    "webpack": "^5.60.0",
+    "webpack-cli": "^4.9.1"
+  }
+}

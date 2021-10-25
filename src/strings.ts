@@ -17,7 +17,7 @@ export default {
         Main: "Projects",
         Templates: "Templates"
     },
-    SolutionUrl: "/sites/Classic/stratplan/SiteAssets/sp-509planner/index.html",
+    SolutionUrl: "/sites/Classic/projectplanner/SiteAssets/sp-projectplanner/index.html",
     SupportEmail: "stephenburtrum@burtrumtech.onmicrosoft.com",
     TimeFormat: "MM/DD/YYYY HH:mm:ss",
     TimelineName: "Timeline View",

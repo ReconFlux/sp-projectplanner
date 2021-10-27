@@ -19,34 +19,35 @@ export class DocModal {
         this._el = el;
         //this._eventItem = item;
         this._itemID = item.Id;
+
         // Render the modal
-        this.render(el);
+        this.render();
     }
 
     // Render method
-    private render(el: HTMLElement) {
+    private render() {
 
         // Create the Modal Header
-        let _elHead = document.createElement("div");
-        _elHead.id = "modalHeader";
-        _elHead.innerHTML = "Item Documents Folder";
-        Modal.setHeader(_elHead);
+        Modal.setHeader("Item Documents Folder");
 
-        let _elDoc = document.createElement("div");
-        let Docs = new Documents({
-            el: _elDoc,
+        // Create the attachments table
+        let el = document.createElement("div");
+        let docs = new Documents({
+            el,
             listName: strings.Lists.Main,
             itemId: this._itemID,
             canDelete: true,
             canEdit: true,
             canView: true,
-
-
         });
-        Modal.setBody(_elDoc);
+
+        // Set the body
+        Modal.setBody(el);
+
         // Modal Props
         Modal.setScrollable(true);
         Modal.setType(Components.ModalTypes.XLarge);
+
         // Show
         Modal.show();
     }

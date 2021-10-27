@@ -392,6 +392,7 @@ export class App {
                         name: "Documents",
                         title: "Documents",
                         onRenderCell: (el, column, item: IItem) => {
+                            /*
                             // Render the document column
                             new Documents(el, item, this._dashboard, () => {
                                 // Refresh the data
@@ -401,6 +402,7 @@ export class App {
                                 });
                                 this.refresh();
                             });
+                            */
                         }
                     },
                     {

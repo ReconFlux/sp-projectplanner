@@ -1,90 +1,87 @@
 import { Helper, SPTypes } from "gd-sprest-bs";
 import Strings from "./strings";
+
 /**
  * SharePoint Assets
  */
 export const Configuration = Helper.SPConfig({
     ListCfg: [
-        // Battle Rhythm Event List
         {
             ListInformation: {
-                Title: Strings.Lists.Main,
-                BaseTemplate: SPTypes.ListTemplateType.GenericList
+                Title: Strings.Lists.Schedule,
+                BaseTemplate: SPTypes.ListTemplateType.Events
             },
-            TitleFieldDisplayName: "Project Name",
+            ContentTypes: [
+                {
+                    Name: "Event",
+                    FieldRefs: [
+                        "ProjectName", "Description", "Cost", "AssignedTo", "EventDate",
+                        "EndDate", "Category", "Status", "Priority"
+                    ]
+                }
+            ],
             CustomFields: [
-                // Priorities
                 {
-                    name: "priorities",
-                    title: "Priorities",
-                    type: Helper.SPCfgFieldType.Choice,
+                    name: "AssignedTo",
+                    title: "Assigned To",
+                    type: Helper.SPCfgFieldType.User,
                     required: true,
-                    choices: ["High", "Medium", "Low"]
-                } as Helper.IFieldInfoChoice,
-                // Lines of Effort
+                    selectionMode: SPTypes.FieldUserSelectionType.PeopleOnly,
+                    defaultValue: "[Me]"
+                } as Helper.IFieldInfoUser,
                 {
-                    name: "linesofeffort",
-                    title: "Lines of Effort",
-                    type: Helper.SPCfgFieldType.Choice,
-                    required: true,
-                    choices: ["Effort A", "Effort B", "Effort C", "Effort D", "Effort E"]
-                } as Helper.IFieldInfoChoice,
-                // Status
+                    name: "ProjectName",
+                    title: "Project Name",
+                    type: Helper.SPCfgFieldType.Text,
+                    description: "Your project's name.",
+                    required: true
+                } as Helper.IFieldInfoText,
                 {
                     name: "Status",
                     title: "Status",
                     type: Helper.SPCfgFieldType.Choice,
+                    required: true,
                     choices: [
                         "Not Started",
                         "In Progress",
-                        "Needs Attention",
+                        "On Hold",
+                        "Delayed",
                         "Completed",
                         "Cancelled",
-                        "Delayed",
-                        "Archived"
+                        "Aborted"
                     ],
                     defaultValue: "Not Started"
                 } as Helper.IFieldInfoChoice,
-                // Assessment
                 {
-                    name: "Assessment",
-                    title: "Assessment",
-                    type: Helper.SPCfgFieldType.Number,
-                    defaultValue: "0",
+                    name: "Priority",
+                    title: "Priority",
+                    type: Helper.SPCfgFieldType.Choice,
+                    required: true,
+                    choices: [
+                        "High",
+                        "Medium",
+                        "Low"
+                    ],
+                    description: "Priority of the project.",
+                    defaultValue: "Low",
+                } as Helper.IFieldInfoChoice,
+                {
+                    name: "Cost",
+                    title: "Cost",
+                    type: Helper.SPCfgFieldType.Currency,
+                    description: "Enter the total cost of the project if there is any.",
+                    require: false,
                     min: 0,
-                    max: 10,
-                    numberType: SPTypes.FieldNumberType.Integer
-                } as Helper.IFieldInfoNumber,
-                {
-                    name: "StartDate",
-                    title: "Start Date",
-                    displayFormat: SPTypes.DateFormat.DateOnly,
-                    format: SPTypes.DateFormat.DateOnly,
-                    type: Helper.SPCfgFieldType.Date
-                } as Helper.IFieldInfoDate,
-                {
-                    name: "EndDate",
-                    title: "End Date",
-                    displayFormat: SPTypes.DateFormat.DateOnly,
-                    format: SPTypes.DateFormat.DateOnly,
-                    type: Helper.SPCfgFieldType.Date
-                } as Helper.IFieldInfoDate,
+                } as Helper.IFieldInfoCurrency,
             ],
             ViewInformation: [
                 {
-                    ViewName: "All Items",
+                    ViewName: "All Events",
                     ViewFields: [
-                        "LinkTitle", "Priorities", "linesofeffort", "Status", "Assessment", "StartDate", "EndDate"
+                        "ProjectName", "Description", "Cost", "AssignedTo", "EventDate", "EndDate", "Category", "Status", "Priority",
                     ]
                 }
             ]
-        },
-        // Templates Library
-        {
-            ListInformation: {
-                Title: Strings.Lists.Templates,
-                BaseTemplate: SPTypes.ListTemplateType.DocumentLibrary
-            }
         }
     ]
 });

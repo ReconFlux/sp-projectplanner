@@ -1,28 +1,27 @@
 import { ContextInfo } from "gd-sprest-bs";
-/**
- * Global Constants
- */
 
-// Constant
-export const SourceUrl: string = ContextInfo.webServerRelativeUrl + "/SiteAssets/sp-projectplanner/";
+// Updates the strings for SPFx
+export const setContext = (context) => {
+    // Set the page context
+    ContextInfo.setPageContext(context);
 
-export default {
-    AppElementId: "sp-projectplanner",
-    DashboardName: "Dashboard View",
-    DateFormat: "MM/DD/YYYY",
-    GlobalVariable: "SPDashboard",
-    ProjectName: "Project Planner",
-    ProjectDescription: "This is a Simple Project Planner",
-    Lists: {
-        Main: "Projects",
-        Templates: "Templates"
-    },
-    SolutionUrl: "/sites/Classic/projectplanner/SiteAssets/sp-projectplanner/index.html",
-    SupportEmail: "stephenburtrum@burtrumtech.onmicrosoft.com",
-    TimeFormat: "MM/DD/YYYY HH:mm:ss",
-    TimelineName: "Timeline View",
-    Version: "0.1",
-    WebConfigUrl: SourceUrl + "config.json",
+    // Update the values
+    Strings.SolutionUrl = ContextInfo.webServerRelativeUrl + "/SiteAssets/schedule/index.html";
 }
 
-// 
+// Strings
+const Strings = {
+    AppElementId: "sp-projectplanner",
+    GlobalVariable: "SPDashboard",
+    Lists: {
+        Schedule: "Projects"
+    },
+    ProjectName: "My Planner",
+    ProjectDescription: "A Simple Project Planner Application",
+    SolutionUrl: ContextInfo.webServerRelativeUrl + "/siteassets/sp-projectplanner/index.html",
+    SupportEmail: "stephenburtrum@burtrumtech.onmicrosoft.com",
+    TimeFormat: "MM/DD/YYYY HH:mm:ss",
+    DateFormat: "MM/DD/YYYY",
+    Version: "0.1"
+}
+export default Strings;

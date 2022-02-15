@@ -171,4 +171,17 @@ export class GanttChart {
         // Render the gantt chart if it doesn't exist
         if (this._chart == null) { this.render(); }
     }
+
+    // Changes view to Days
+    viewDay() {
+        this.Chart.change_view_mode('Day');
+    }
+    // Changes view to Weeks
+    viewWeek() {
+        this.Chart.change_view_mode('Week');
+    }
+    // Changes view to Months
+    viewMonth() {
+        this.Chart.change_view_mode('Month');
+    }
 }

@@ -12,6 +12,7 @@ import { plusSquareFill } from "gd-sprest-bs/build/icons/svgs/plusSquareFill";
 import { filterSquare } from "gd-sprest-bs/build/icons/svgs/filterSquare";
 import { cardList } from "gd-sprest-bs/build/icons/svgs/cardList";
 import { printer } from "gd-sprest-bs/build/icons/svgs/printer";
+import { calendar } from "gd-sprest-bs/build/icons/svgs/calendar";
 import { pencilSquare } from "gd-sprest-bs/build/icons/svgs/pencilSquare";
 import { EventsForm } from "./components/ItemForm";
 import { GanttChart } from "./components/GanttChart";
@@ -110,10 +111,40 @@ export class App {
             ],
             itemsEnd: [
                 {
+                    text: "Day",
+                    isButton: true,
+                    iconSize: 18,
+                    iconType: calendar,
+                    className: "btn-outline-dark me-1 btn-sm",
+                    onClick: () => {
+                        this._chart.viewDay();
+                    }
+                },
+                {
+                    text: "Week",
+                    isButton: true,
+                    iconSize: 18,
+                    iconType: calendar,
+                    className: "btn-outline-dark me-1 btn-sm",
+                    onClick: () => {
+                        this._chart.viewWeek();
+                    }
+                },
+                {
+                    text: "Month",
+                    isButton: true,
+                    iconSize: 18,
+                    iconType: calendar,
+                    className: "btn-outline-dark me-1 btn-sm",
+                    onClick: () => {
+                        this._chart.viewMonth();
+                    }
+                },
+                {
                     text: "Filters",
                     isButton: true,
                     iconSize: 18,
-                    iconType: printer,
+                    iconType: filterSquare,
                     className: "btn-outline-dark me-1 btn-sm",
                     onClick: () => {
                         this.refresh();
@@ -188,11 +219,35 @@ export class App {
                 },
                 {
                     name: "EventDate",
-                    title: "EventDate"
+                    title: "Start Date",
+                    onRenderCell: (el, column, item: IItem) => {
+                        let date = item[column.name];
+                        el.innerHTML =
+                            moment(date).format("MMMM DD, YYYY");
+                    }
                 },
                 {
                     name: "EndDate",
-                    title: "EndDate"
+                    title: "End Date",
+                    onRenderCell: (el, column, item: IItem) => {
+                        let date = item[column.name];
+                        el.innerHTML =
+                            moment(date).format("MMMM DD, YYYY");
+                    }
+                },
+                {
+                    name: "",
+                    title: "Duration",
+                    onRenderCell: (el, column, item: IItem) => {
+                        let start = moment(item.EventDate);
+                        let end = moment(item.EndDate);
+                        let Dur = moment.duration(end.diff(start));
+                        let hours = Dur.asHours();
+                        let roundedDwn = Math.floor(hours).toString();
+                        let humaned = Dur.humanize();
+                        el.innerHTML = roundedDwn + " " + "Hours" + " " + "(" + humaned + ")";
+
+                    }
                 },
                 {
                     name: "Status",

@@ -1,64 +1,72 @@
 /** Header banner image */
 #header {
-    height: 28vh !important;
-  }
+  height: 28vh !important;
+}
 .header {
-    height: 28vh !important;
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-color: black;
-  }
+  height: 28vh !important;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: black;
+}
 
 /* Fix icon alignment inside nav item buttons */
 #navbar_content ul.navbar-nav li.nav-item a.btn svg {
-    margin: 0 0.5rem 0.1rem -0.25rem;
-  }
+  margin: 0 0.5rem 0.1rem -0.25rem;
+}
 
 /** Hides the first webpart zone */
-#DeltaPlaceHolderMain > table:first-child > tbody > tr:first-child > td:first-child {
-    width: 0%;
-  }
-  /** Makes the main webpart zone full width */
-  #DeltaPlaceHolderMain > table:first-child > tbody > tr:first-child > td:last-child {
-    width: 100%;
-  }
-  /* Hide the default search box */
-  #DeltaPlaceHolderSearchArea {
-    display: none;
-  }
-  /* Reset the left margin due to hiding sideNavBox */
+#DeltaPlaceHolderMain
+  > table:first-child
+  > tbody
+  > tr:first-child
+  > td:first-child {
+  width: 0%;
+}
+/** Makes the main webpart zone full width */
+#DeltaPlaceHolderMain
+  > table:first-child
+  > tbody
+  > tr:first-child
+  > td:last-child {
+  width: 100%;
+}
+/* Hide the default search box */
+#DeltaPlaceHolderSearchArea {
+  display: none;
+}
+/* Reset the left margin due to hiding sideNavBox */
 #contentBox {
-    margin-left: 20px !important;
-  }
-  /* Remove the extra top padding on the content row */
-  #contentRow {
-    padding-top: 0 !important;
-  }
-  /* S4 Title row*/ 
-  #s4-titlerow {
-    display: none !important;
-  }
-  #sideNavBox {
-    display: none !important;
-  }
-  .ms-webpartPage-root {
-    border-spacing: 0px !important;
-    padding-top: 1vh !important;
-  }
- #DashboardNav {
-     border-radius: 5px 5px 0 0 !important;
-     height: 6vh !important;
- }
- .SubNavClass {
+  margin-left: 20px !important;
+}
+/* Remove the extra top padding on the content row */
+#contentRow {
+  padding-top: 0 !important;
+}
+/* S4 Title row*/
+#s4-titlerow {
+  display: none !important;
+}
+#sideNavBox {
+  display: none !important;
+}
+.ms-webpartPage-root {
+  border-spacing: 0px !important;
+  padding-top: 1vh !important;
+}
+#DashboardNav {
+  border-radius: 5px 5px 0 0 !important;
+  height: 6vh !important;
+}
+.SubNavClass {
   border-radius: 0px 0px 5px 5px !important;
   border: 2px solid #e7e7e7 !important;
   border-top-width: 0px !important;
   height: 5rem !important;
 }
- /** TIME LINE PROPERTIES */
+/** TIME LINE PROPERTIES */
 
- .vis-time-axis {
+.vis-time-axis {
   .vis-grid.vis-minor {
     border-color: #cacaca;
   }
@@ -117,28 +125,13 @@
   background-color: #fbfbfbd9 !important;
 }
 /*ITEM CLASS COLOR CODE*/
-.Itemclass_Current {
-  border-left-width: 15px !important;
-  border-left-color: red !important;
-}
-.Itemclass_Future {
-  border-left-width: 15px !important;
-  border-left-color: yellow !important;
-}
-.Itemclass_Enable {
-  border-left-width: 15px !important;
-  border-left-color: orange !important;
-}
-.Itemclass_Partner {
-  border-left-width: 15px !important;
-  border-left-color: aqua !important;
-}
-.Itemclass_Airmen {
-  border-left-width: 15px !important;
-  border-left-color: #9eb9ff !important;
-}
+
 .dataTables_wrapper {
   margin-top: 2vh !important;
   border: 2px solid #e7e7e7 !important;
   border-radius: 5px;
+}
+/* Color Codes */
+[data-id="Event_1"] g rect {
+  fill: #620000 !important;
 }

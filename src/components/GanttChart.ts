@@ -105,12 +105,12 @@ export class GanttChart {
 
                     // Create the item
                     this._items.push({
-                        id: "Event_" + item.Id,
+                        id: "Event_" + item.Category,
                         item,
                         progress: 0, // A value is required
                         name: item.ProjectName,
                         start: new Date(startDate),
-                        end: new Date(endDate)
+                        end: new Date(endDate),
                     });
                 }
             }
@@ -175,13 +175,21 @@ export class GanttChart {
     // Changes view to Days
     viewDay() {
         this.Chart.change_view_mode('Day');
+        // Create the popup
+        this.createPopups();
     }
     // Changes view to Weeks
     viewWeek() {
         this.Chart.change_view_mode('Week');
+        // Create the popup
+        this.createPopups();
     }
     // Changes view to Months
     viewMonth() {
         this.Chart.change_view_mode('Month');
+        // Create the popup
+        this.createPopups();
     }
+
+    
 }

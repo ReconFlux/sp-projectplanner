@@ -87,3 +87,13 @@
 [data-id="Event_Travel"] g rect {
   fill: #9900ff !important;
 }
+/*Sets the Max Width for the Gannt Chart*/
+div#ganttChart {
+  max-width: 1832px !important;
+}
+.gantt-container {
+  position: relative;
+  font-size: 12px;
+  overflow: scroll !important;
+  max-height: 380px !important;
+}

@@ -202,7 +202,7 @@ export class App {
                 headerCallback: function (thead, data, start, end, display) {
                     jQuery('th', thead).addClass('align-middle');
                 },
-                lengthMenu: [10, 25, 50, 100],
+                lengthMenu: [4, 10, 15, 50, 100],
                 // Order by the 1st column by default; ascending
                 order: [[1, "asc"]]
             },

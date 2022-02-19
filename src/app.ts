@@ -57,7 +57,9 @@ export class App {
                 props.type = Components.NavbarTypes.Dark;
                 props.className = "MainNav rounded-top";
             },
-            /*itemsEnd: [
+            /*
+            // TODO, Need to figure WHAT to change. and HOW..
+            itemsEnd: [
                 {
                     text: "Settings",
                     iconSize: 18,

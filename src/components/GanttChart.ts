@@ -53,8 +53,6 @@ export class GanttChart {
             let bar = this._chart.bars[i];
             let item: IItem = bar.task.item;
 
-            
-
 
             /*// Create a popup
             Components.Popover({
@@ -157,6 +155,8 @@ export class GanttChart {
                     this.createPopups();
                 }
             });
+
+ 
 
             // Resize the element
             this._el.dispatchEvent(new Event("resize"));

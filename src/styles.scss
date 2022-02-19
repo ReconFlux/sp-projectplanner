@@ -132,6 +132,18 @@
   border-radius: 5px;
 }
 /* Color Codes */
-[data-id="Event_1"] g rect {
+[data-id="Event_Exam"] g rect {
   fill: #620000 !important;
+}
+[data-id="Event_Class"] g rect {
+  fill: #002155 !important;
+}
+[data-id="Event_Home"] g rect {
+  fill: #005515 !important;
+}
+[data-id="Event_Study"] g rect {
+  fill: #8e9000 !important;
+}
+[data-id="Event_Work"] g rect {
+  fill: #440055 !important;
 }

@@ -17,6 +17,7 @@ import { pencilSquare } from "gd-sprest-bs/build/icons/svgs/pencilSquare";
 import { EventsForm } from "./components/ItemForm";
 import { GanttChart } from "./components/GanttChart";
 import { settingsForm } from "./components/settings";
+import legend from "./components/legend";
 
 /**
  * Main Application
@@ -103,6 +104,20 @@ export class App {
                     isButton: true,
                     className: "btn-outline-dark me-1 btn-sm",
                     onClick: () => {
+                        let legend = document.querySelector(".Legend_Toast");
+                        if (legend.classList.contains("hide")) {
+
+                            // update class
+                            legend.classList.remove("d-none")
+                            legend.classList.remove("hide");
+                            legend.classList.add("show");
+                        } else {
+
+                            // hide it
+                            legend.classList.remove("show");
+                            legend.classList.add("hide");
+                            legend.classList.add("d-none");
+                        }
 
                     }
                 },
@@ -216,11 +231,15 @@ export class App {
                 },
                 {
                     name: "ProjectName",
-                    title: "ProjectName"
+                    title: "Name"
                 },
                 {
-                    name: "Description",
-                    title: "Description"
+                    name: "Priority",
+                    title: "Priority"
+                },
+                {
+                    name: "Status",
+                    title: "Status"
                 },
                 {
                     name: "EventDate",
@@ -254,19 +273,21 @@ export class App {
 
                     }
                 },
-                {
-                    name: "Status",
-                    title: "Status"
-                },
-                {
-                    name: "Category",
-                    title: "Category"
-                },
-                {
-                    name: "Priority",
-                    title: "Priority"
-                }
             ]
+        });
+        this.legend(el);
+    }
+    // Legend
+    private legend(el: HTMLElement) {
+        Components.Toast({
+            el,
+            className: "Legend_Toast hide d-none",
+            headerText: "Legend",
+            onRenderHeader: props => {
+                props.id = "LegendHeader";
+            },
+            body: legend.Legend,
+            options: { autohide: true }
         });
     }
 

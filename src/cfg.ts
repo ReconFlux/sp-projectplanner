@@ -15,7 +15,7 @@ export const Configuration = Helper.SPConfig({
                 {
                     Name: "Event",
                     FieldRefs: [
-                        "ProjectName", "Description", "Cost", "AssignedTo", "EventDate",
+                        "ProjectName", "Description", "AssignedTo", "EventDate",
                         "EndDate", "Category", "Status", "Priority"
                     ]
                 }
@@ -27,13 +27,11 @@ export const Configuration = Helper.SPConfig({
                     type: Helper.SPCfgFieldType.User,
                     required: true,
                     selectionMode: SPTypes.FieldUserSelectionType.PeopleOnly,
-                    defaultValue: "[Me]"
                 } as Helper.IFieldInfoUser,
                 {
                     name: "ProjectName",
-                    title: "Project Name",
+                    title: "Name",
                     type: Helper.SPCfgFieldType.Text,
-                    description: "Your project's name.",
                     required: true
                 } as Helper.IFieldInfoText,
                 {
@@ -48,7 +46,6 @@ export const Configuration = Helper.SPConfig({
                         "Delayed",
                         "Completed",
                         "Cancelled",
-                        "Aborted"
                     ],
                     defaultValue: "Not Started"
                 } as Helper.IFieldInfoChoice,
@@ -62,23 +59,14 @@ export const Configuration = Helper.SPConfig({
                         "Medium",
                         "Low"
                     ],
-                    description: "Priority of the project.",
                     defaultValue: "Low",
                 } as Helper.IFieldInfoChoice,
-                {
-                    name: "Cost",
-                    title: "Cost",
-                    type: Helper.SPCfgFieldType.Currency,
-                    description: "Enter the total cost of the project if there is any.",
-                    require: false,
-                    min: 0,
-                } as Helper.IFieldInfoCurrency,
             ],
             ViewInformation: [
                 {
                     ViewName: "All Events",
                     ViewFields: [
-                        "ProjectName", "Description", "Cost", "AssignedTo", "EventDate", "EndDate", "Category", "Status", "Priority",
+                        "ProjectName", "Description", "AssignedTo", "EventDate", "EndDate", "Category", "Status", "Priority",
                     ]
                 }
             ]

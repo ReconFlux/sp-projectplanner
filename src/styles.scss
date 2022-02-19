@@ -1,15 +1,3 @@
-/** Header banner image */
-#header {
-  height: 28vh !important;
-}
-.header {
-  height: 28vh !important;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-color: black;
-}
-
 /* Fix icon alignment inside nav item buttons */
 #navbar_content ul.navbar-nav li.nav-item a.btn svg {
   margin: 0 0.5rem 0.1rem -0.25rem;
@@ -54,61 +42,7 @@
   border-spacing: 0px !important;
   padding-top: 1vh !important;
 }
-#DashboardNav {
-  border-radius: 5px 5px 0 0 !important;
-  height: 6vh !important;
-}
-.SubNavClass {
-  border-radius: 0px 0px 5px 5px !important;
-  border: 2px solid #e7e7e7 !important;
-  border-top-width: 0px !important;
-  height: 5rem !important;
-}
-/** TIME LINE PROPERTIES */
 
-.vis-time-axis {
-  .vis-grid.vis-minor {
-    border-color: #cacaca;
-  }
-  .vis-text {
-    color: rgba(0, 0, 0, 0.9);
-    font-weight: 500;
-  }
-}
-.vis-timeline {
-  border: 2px solid #cacaca;
-  border-radius: 0.25rem;
-}
-.vis-label.vis-group-level-0 {
-  align-items: center;
-  background: linear-gradient(to right, #dee2e6 1%, #fff 100%);
-  color: rgba(0, 0, 0, 0.9);
-  display: flex;
-  font-size: 1rem;
-  font-weight: bold;
-  justify-content: left;
-  text-align: center;
-}
-/* Style top, bottom, and left-hand side of the timeline */
-.vis-panel.vis-left {
-  width: 10vw;
-}
-
-.vis-item .vis-item-overflow {
-  overflow: visible;
-}
-
-.vis-item .vis-item-content {
-  font-size: larger !important;
-  font-weight: 600 !important;
-}
-
-.vis-item {
-  border-color: transparent !important;
-}
-.vis-range {
-  background-color: #e5e5e5 !important;
-}
 #timelineDiv nav.navbar {
   border: 2px solid #cecece !important;
   margin-bottom: 3vh !important;
@@ -119,10 +53,10 @@
 .Legend_Toast {
   position: fixed;
   z-index: 11;
-  left: 22vw;
-  top: 46vh;
+  left: 5%;
+  top: 20%;
   font-size: small !important;
-  background-color: #fbfbfbd9 !important;
+  background-color: #fbfbfb !important;
 }
 /*ITEM CLASS COLOR CODE*/
 
@@ -132,13 +66,13 @@
   border-radius: 5px;
 }
 /* Color Codes */
-[data-id="Event_Exam"] g rect {
+[data-id="Event_Appointment"] g rect {
   fill: #620000 !important;
 }
-[data-id="Event_Class"] g rect {
+[data-id="Event_Meeting"] g rect {
   fill: #002155 !important;
 }
-[data-id="Event_Home"] g rect {
+[data-id="Event_School"] g rect {
   fill: #005515 !important;
 }
 [data-id="Event_Study"] g rect {
@@ -146,4 +80,10 @@
 }
 [data-id="Event_Work"] g rect {
   fill: #440055 !important;
+}
+[data-id="Event_Holiday"] g rect {
+  fill: #00a7d1 !important;
+}
+[data-id="Event_Travel"] g rect {
+  fill: #9900ff !important;
 }

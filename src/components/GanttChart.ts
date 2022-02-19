@@ -2,6 +2,7 @@ import { Components } from "gd-sprest-bs";
 import Gantt from "frappe-gantt";
 import { DataSource, IItem } from "../ds";
 import { settingsForm } from "./settings";
+import { itemDisplay } from "./itemDisplay";
 /**
  * Gantt Chart
  */
@@ -53,8 +54,10 @@ export class GanttChart {
             let bar = this._chart.bars[i];
             let item: IItem = bar.task.item;
 
-
+            let _elItemForm = document.createElement("div");
+            new itemDisplay(_elItemForm, item);
             /*// Create a popup
+            
             Components.Popover({
                 target: bar.group,
                 title: "This is a Popover",
@@ -156,7 +159,7 @@ export class GanttChart {
                 }
             });
 
- 
+
 
             // Resize the element
             this._el.dispatchEvent(new Event("resize"));

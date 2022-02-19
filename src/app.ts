@@ -16,6 +16,7 @@ import { calendar } from "gd-sprest-bs/build/icons/svgs/calendar";
 import { pencilSquare } from "gd-sprest-bs/build/icons/svgs/pencilSquare";
 import { EventsForm } from "./components/ItemForm";
 import { GanttChart } from "./components/GanttChart";
+import { settingsForm } from "./components/settings";
 
 /**
  * Main Application
@@ -56,16 +57,18 @@ export class App {
                 props.type = Components.NavbarTypes.Dark;
                 props.className = "MainNav rounded-top";
             },
-            itemsEnd: [
+            /*itemsEnd: [
                 {
                     text: "Settings",
                     iconSize: 18,
                     iconType: gear,
                     isButton: true,
                     className: "btn-outline-light me-1 btn-sm",
-                    // TODO
+                    onClick: () => {
+                        new settingsForm();
+                    }
                 }
-            ]
+            ]*/
         });
         this._subNavigation = new Navigation({
             el,

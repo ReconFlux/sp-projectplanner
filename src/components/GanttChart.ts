@@ -14,7 +14,7 @@ export class GanttChart {
     private _el: HTMLElement = null;
     private _filter: string = null;
     private _items: Array<any> = null;
-    
+
 
     // Gantt Chart
     private _chart = null;
@@ -67,7 +67,7 @@ export class GanttChart {
             <div class="col">
             <div class="row mt-3">
             <h6 class="fw-bold text-white">Description:</h6>
-            <p class=" m-0">${item.Description}</p>
+            <p class=" m-0">${item.Description || "No Description was provided."}</p>
                 </div>
                 <div class="row mt-2">
                     <div class="col">
@@ -82,7 +82,7 @@ export class GanttChart {
                 <div class="row mt-3">
                     <div class="col">
                         <h6 class="fw-bold text-white">Category:</h6>
-                        <p class=" m-0">${item.Category}</p>
+                        <p class=" m-0">${item.Category || ""}</p>
                     </div>
                     <div class="col">
                         <h6 class="fw-bold text-white">Status:</h6>
@@ -92,7 +92,7 @@ export class GanttChart {
                 <div class="row mt-3">
                     <div class="col">
                         <h6 class="fw-bold text-white">Priority:</h6>
-                        <p class=" m-0">${item.Priority}</p>
+                        <p class=" m-0">${item.Priority || ""}</p>
                     </div>
                     <div class="col">
                         <h6 class="fw-bold text-white">Assigned:</h6>

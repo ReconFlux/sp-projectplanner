@@ -1,12 +1,9 @@
 import { Components } from "gd-sprest-bs";
 import Gantt from "frappe-gantt";
 import { DataSource, IItem } from "../ds";
-import { settingsForm } from "./settings";
-import { itemDisplay } from "./itemDisplay";
 import * as moment from "moment";
 import { ItemForm } from "dattatable";
 import Strings from "../strings";
-import { App } from "../app";
 /**
  * Gantt Chart
  */
@@ -220,6 +217,8 @@ export class GanttChart {
             // Create the gantt chart
             this._chart = new Gantt(this._el, this._items, {
                 popup_trigger: "",
+                bar_height: 50,
+                column_width: 50,
                 view_mode: "Week",
                 on_click: () => {
                     this.createPopups();
@@ -248,12 +247,14 @@ export class GanttChart {
         // Create the popup
 
     }
+
     // Changes view to Weeks
     viewWeek() {
         this.Chart.change_view_mode('Week');
         // Create the popup
 
     }
+
     // Changes view to Months
     viewMonth() {
         this.Chart.change_view_mode('Month');

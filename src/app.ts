@@ -1,22 +1,17 @@
-import { ItemForm, Dashboard, DataTable, Navigation } from "dattatable";
+import { ItemForm, DataTable, Navigation } from "dattatable";
 import { DataSource, IItem } from "./ds";
 import { Components } from "gd-sprest-bs";
 import * as jQuery from "jquery";
 import * as moment from "moment";
-import * as Common from "./common";
-import { formatDateValue } from "./common";
 import Strings from "./strings";
 import { Icons } from "./icons";
-import { gear } from "gd-sprest-bs/build/icons/svgs/gear";
 import { plusSquareFill } from "gd-sprest-bs/build/icons/svgs/plusSquareFill";
 import { filterSquare } from "gd-sprest-bs/build/icons/svgs/filterSquare";
 import { cardList } from "gd-sprest-bs/build/icons/svgs/cardList";
 import { printer } from "gd-sprest-bs/build/icons/svgs/printer";
 import { calendar } from "gd-sprest-bs/build/icons/svgs/calendar";
 import { pencilSquare } from "gd-sprest-bs/build/icons/svgs/pencilSquare";
-import { EventsForm } from "./components/ItemForm";
 import { GanttChart } from "./components/GanttChart";
-import { settingsForm } from "./components/settings";
 import legend from "./components/legend";
 
 /**

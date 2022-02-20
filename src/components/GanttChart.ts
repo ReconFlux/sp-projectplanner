@@ -3,6 +3,10 @@ import Gantt from "frappe-gantt";
 import { DataSource, IItem } from "../ds";
 import { settingsForm } from "./settings";
 import { itemDisplay } from "./itemDisplay";
+import * as moment from "moment";
+import { ItemForm } from "dattatable";
+import Strings from "../strings";
+import { App } from "../app";
 /**
  * Gantt Chart
  */
@@ -10,6 +14,7 @@ export class GanttChart {
     private _el: HTMLElement = null;
     private _filter: string = null;
     private _items: Array<any> = null;
+    
 
     // Gantt Chart
     private _chart = null;
@@ -54,20 +59,83 @@ export class GanttChart {
             let bar = this._chart.bars[i];
             let item: IItem = bar.task.item;
 
-            let _elItemForm = document.createElement("div");
-            new itemDisplay(_elItemForm, item);
-            /*// Create a popup
-            
+            ItemForm.ListName = Strings.Lists.Schedule;
+
+            let _elBody = document.createElement("div");
+            _elBody.innerHTML = `<div class="lh-1 p-3">
+        <div class="row text-white">
+            <div class="col">
+            <div class="row mt-3">
+            <h6 class="fw-bold text-white">Description:</h6>
+            <p class=" m-0">${item.Description}</p>
+                </div>
+                <div class="row mt-2">
+                    <div class="col">
+                        <h6 class="fw-bold text-white">Start Date:</h6>
+                        <p class=" m-0">${(moment(item.EventDate).format("MMM/DD/YYYY"))}</p>
+                    </div>
+                    <div class="col">
+                        <h6 class="fw-bold text-white">End Date:</h6>
+                        <p class=" m-0">${(moment(item.EndDate).format("MMM/DD/YYYY"))}</p>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <h6 class="fw-bold text-white">Category:</h6>
+                        <p class=" m-0">${item.Category}</p>
+                    </div>
+                    <div class="col">
+                        <h6 class="fw-bold text-white">Status:</h6>
+                        <p class=" m-0">${item.Status || ""}</p>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <h6 class="fw-bold text-white">Priority:</h6>
+                        <p class=" m-0">${item.Priority}</p>
+                    </div>
+                    <div class="col">
+                        <h6 class="fw-bold text-white">Assigned:</h6>
+                        <p class=" m-0">${item.AssignedTo.Title || ""}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`
+
+            let _elFooter = document.createElement("div");
+            Components.Button({
+                el: _elFooter,
+                text: "Update",
+                type: Components.ButtonTypes.OutlineLight,
+                className: "mb-3",
+                onClick: () => {
+                    // Show the edit form
+                    ItemForm.edit({
+                        itemId: item.Id,
+                        onUpdate: () => {
+                            // TODO, get the refresh method from the App.
+                            window.location.reload();
+                        }
+                    });
+                }
+            });
+
+            _elBody.appendChild(_elFooter);
+
+            // Create a popup
             Components.Popover({
                 target: bar.group,
-                title: "This is a Popover",
+                className: "m-2",
+                type: Components.PopoverTypes.Secondary,
+                title: item.ProjectName,
                 placement: Components.PopoverPlacements.Top,
                 options: {
                     appendTo: this._el,
-                    content: "This is the content for: " + item.ProjectName,
+                    content: _elBody,
                     trigger: "focus"
-                }
-            });*/
+                },
+            });
         }
     }
 
@@ -138,7 +206,7 @@ export class GanttChart {
             this._items.length > 0 ? this._chart.refresh(this._items) : null;
 
             // Create the popup
-            this.createPopups();
+
         } else {
             // Render the gantt chart
             this.render();
@@ -154,7 +222,6 @@ export class GanttChart {
                 popup_trigger: "",
                 view_mode: "Week",
                 on_click: () => {
-                    // test
                     this.createPopups();
                 }
             });
@@ -179,19 +246,19 @@ export class GanttChart {
     viewDay() {
         this.Chart.change_view_mode('Day');
         // Create the popup
-        this.createPopups();
+
     }
     // Changes view to Weeks
     viewWeek() {
         this.Chart.change_view_mode('Week');
         // Create the popup
-        this.createPopups();
+
     }
     // Changes view to Months
     viewMonth() {
         this.Chart.change_view_mode('Month');
         // Create the popup
-        this.createPopups();
+
     }
 
 

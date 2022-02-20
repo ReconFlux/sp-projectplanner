@@ -39,6 +39,15 @@ export class App {
         ItemForm.UseModal = true;
     }
     // Methods
+    // Public Refresh
+    Apprefresh(){
+        // Refresh the data
+        DataSource.load().then(items => {
+            // Update the dashboard and timeline
+            this._chart.refresh();
+            this._Datatable.refresh(items);
+        });
+    }
     // Refreshes the dashboard
     private refresh() {
         // Refresh the data
@@ -290,6 +299,5 @@ export class App {
             options: { autohide: true }
         });
     }
-
 
 }

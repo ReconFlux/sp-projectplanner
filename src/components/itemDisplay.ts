@@ -28,16 +28,14 @@ export class itemDisplay {
     // Render
     private render(el: HTMLElement) {
         // Sets the Header
+        Modal.setHeader(this._item.ProjectName);
         // Sets the Body
         let _elBody = document.createElement("div");
         _elBody.innerHTML = `<div class="lh-1">
         <div class="row text-black">
             <div class="col">
             <div class="row mt-3">
-                    <div class="col">
-                        <h6 class="fw-bold text-black">Name:</h6>
-                        <p class=" m-0">${this._item.ProjectName}</p>
-                    </div>
+                    
                 </div>
                 <div class="row mt-2">
                     <div class="col">
@@ -73,7 +71,17 @@ export class itemDisplay {
         </div>
     </div>`
         Modal.setBody(_elBody);
+        // Creates the Footer
+        let _elFooter = document.createElement("div");
+        Components.Button({
+            el: _elFooter,
+            text: "Update",
+            type: Components.ButtonTypes.OutlineSuccess,
+            onClick: () => {
+            }
+        });
         // Sets the Footer
+        Modal.setFooter(_elFooter);
         // Shows the Modal
         Modal.show();
     }

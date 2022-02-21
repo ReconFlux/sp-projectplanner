@@ -13,13 +13,15 @@ import { calendar } from "gd-sprest-bs/build/icons/svgs/calendar";
 import { pencilSquare } from "gd-sprest-bs/build/icons/svgs/pencilSquare";
 import { GanttChart } from "./components/GanttChart";
 import legend from "./components/legend";
-
+import { Calendar } from "fullcalendar";
+import { calendarApp } from "./components/Calendar";
 /**
  * Main Application
  */
 export class App {
     // Variables
-    private _chart: GanttChart = null;
+    private _chart: calendarApp = null;
+    //private _chart: GanttChart = null;
     private _navigation: Navigation = null;
     private _subNavigation: Navigation = null;
     private _Datatable: DataTable = null;
@@ -35,11 +37,11 @@ export class App {
     }
     // Methods
     // Public Refresh
-    Apprefresh(){
+    Apprefresh() {
         // Refresh the data
         DataSource.load().then(items => {
             // Update the dashboard and timeline
-            this._chart.refresh();
+            //this._chart.refresh();
             this._Datatable.refresh(items);
         });
     }
@@ -48,7 +50,7 @@ export class App {
         // Refresh the data
         DataSource.load().then(items => {
             // Update the dashboard and timeline
-            this._chart.refresh();
+            //this._chart.refresh();
             this._Datatable.refresh(items);
         });
     }
@@ -133,7 +135,7 @@ export class App {
                     className: "btn-outline-dark me-1 btn-sm",
                 }
             ],
-            itemsEnd: [
+            /*itemsEnd: [
                 {
                     text: "Day",
                     isButton: true,
@@ -174,9 +176,9 @@ export class App {
                         this.refresh();
                     }
                 }
-            ]
+            ]*/
         });
-        this._chart = new GanttChart(el);
+        this._chart = new calendarApp(el);
         let _elTable = document.createElement("div");
         el.appendChild(_elTable);
         this._Datatable = new DataTable({

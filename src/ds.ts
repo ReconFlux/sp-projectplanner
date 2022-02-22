@@ -13,6 +13,8 @@ export interface IItem extends Types.SP.ListItem {
     ProjectName: string;
     Status: string;
     Priority: string;
+    Editor: { Id: number; Title: string; };
+    Modified: string;
 }
 export interface IConfiguration {
     "Navclass": string;
@@ -78,10 +80,10 @@ export class DataSource {
         return new Promise((resolve, reject) => {
             // Load the data
             List(Strings.Lists.Schedule).Items().query({
-                Expand: ["AssignedTo"],
+                Expand: ["AssignedTo", "Editor"],
                 GetAllItems: true,
                 OrderBy: ["EventDate"],
-                Select: ["*", "AssignedTo/Id", "AssignedTo/Title"],
+                Select: ["*", "AssignedTo/Id", "AssignedTo/Title", "Editor/Id", "Editor/Title"],
                 Top: 5000
             }).execute(
                 // Success

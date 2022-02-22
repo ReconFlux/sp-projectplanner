@@ -100,3 +100,18 @@ div#ganttChart {
 .popup-wrapper {
   display: none !important;
 }
+.Calendar_Headings * {
+  color: black !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+}
+.Calendar_Cells * {
+  color: black !important;
+  text-decoration: none !important;
+}
+.CalEvent * {
+  cursor: pointer !important;
+}
+.fc-toolbar-title {
+  color: black !important;
+}

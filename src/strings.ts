@@ -24,7 +24,7 @@ const Strings = {
     ProjectDescription: "A Simple Project Planner Application",
     SolutionUrl: ContextInfo.webServerRelativeUrl + "/siteassets/sp-projectplanner/index.html",
     SupportEmail: "stephenburtrum@burtrumtech.onmicrosoft.com",
-    TimeFormat: "MM/DD/YYYY HH:mm:ss",
+    TimeFormat: "dddd, MMMM Do YYYY, h:mm a",
     DateFormat: "MM/DD/YYYY",
     Version: "0.1",
     WebConfigUrl: SourceUrl + "config.json",

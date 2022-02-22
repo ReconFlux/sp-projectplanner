@@ -254,7 +254,7 @@ export class App {
                     onRenderCell: (el, column, item: IItem) => {
                         let date = item[column.name];
                         el.innerHTML =
-                            moment(date).format("MMMM DD, YYYY");
+                            moment(date).format(Strings.TimeFormat);
                     }
                 },
                 {
@@ -263,7 +263,7 @@ export class App {
                     onRenderCell: (el, column, item: IItem) => {
                         let date = item[column.name];
                         el.innerHTML =
-                            moment(date).format("MMMM DD, YYYY");
+                            moment(date).format(Strings.TimeFormat);
                     }
                 },
                 {

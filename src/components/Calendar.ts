@@ -151,11 +151,11 @@ export class calendarApp {
     <div class="row mt-2">
         <div class="col">
             <h6 class="fw-bold text-black text-uppercase">Start Date:</h6>
-            <p class=" m-0">${(moment(info.event.extendedProps.start).format("MMM/DD/YYYY"))}</p>
+            <p class=" m-0">${(moment(info.event.extendedProps.start).format(Strings.TimeFormat))}</p>
         </div>
         <div class="col">
             <h6 class="fw-bold text-black text-uppercase">End Date:</h6>
-            <p class=" m-0">${(moment(info.event.extendedProps.end).format("MMM/DD/YYYY"))}</p>
+            <p class=" m-0">${(moment(info.event.extendedProps.end).format(Strings.TimeFormat))}</p>
         </div>
     </div>
     <div class="row mt-3">

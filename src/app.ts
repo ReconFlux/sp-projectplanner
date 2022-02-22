@@ -41,7 +41,7 @@ export class App {
         // Refresh the data
         DataSource.load().then(items => {
             // Update the dashboard and timeline
-            //this._chart.refresh();
+            this._chart.refresh();
             this._Datatable.refresh(items);
         });
     }
@@ -50,7 +50,8 @@ export class App {
         // Refresh the data
         DataSource.load().then(items => {
             // Update the dashboard and timeline
-            //this._chart.refresh();
+            this._chart.refresh();
+
             this._Datatable.refresh(items);
         });
     }

@@ -109,6 +109,8 @@ export class calendarApp {
                 dayCellClassNames: "Calendar_Cells",
                 eventClassNames: "CalEvent",
                 themeSystem: 'standard',
+                lazyFetching: false,
+                rerenderDelay: 5,
                 //headerToolbar: false,
                 initialView: 'dayGridMonth',
                 events: this._items,
@@ -183,6 +185,13 @@ export class calendarApp {
 
         Modal.setFooter(this._elFooter);
         Modal.show();
+    }
+
+    refresh() {
+
+        this.Cal.destroy();
+        this.loadEvents();
+        this.render();
     }
 
 }
